@@ -1,0 +1,31 @@
+article {
+  background-color: #1b2238;
+  padding: 24px;
+  border-radius: 16pt;
+  margin-top: 24pt;
+
+}
+
+article h3 {
+  margin-top: 0;
+}
+
+article a {
+  display: inline-block;
+  margin-top: 12px;
+  color: white;
+  background-color: #437cf5;
+  padding: 6px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+/*
+a:visited {
+  color: rgb(236, 165, 131);
+}
+*/
+
+a:hover {
+  background-color: rgb(236, 165, 131);
+}

@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  background-color: #0b1020;
+  color: white;
+
+  font-family: sans-serif;
+
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+
+  padding: 5% 3%;
+}
+
+section{
+  margin-bottom: 64px;
+}
+
+h1{
+  font-size: 48px;
+  margin-bottom: 24px;
+}
+
+h2{
+  margin-bottom: 24px;
+}
+
+p{
+  line-height: 1.7;
+}
+
