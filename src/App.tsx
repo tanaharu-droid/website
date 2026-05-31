@@ -2,6 +2,8 @@ import './App.css'
 import ProjectCard from './ProjectCard'
 import PublicationCard from './PublicationCard'
 
+
+
 function App() {
   const projects = [
     {
@@ -70,6 +72,20 @@ function App() {
     }
   ]
 
+  const links = [
+    {
+      id: "orcid",
+      name: "ORCID",
+      url: "https://orcid.org/0009-0005-2363-2515"
+    },
+
+    {
+      id: "github",
+      name: "GitHub",
+      url: "https://github.com/tanaharu-droid"
+    }
+  ]
+
   return (
     <main>
       <section>
@@ -84,19 +100,48 @@ function App() {
 
       <section>
         <h2>
-          Research
+          Profile
         </h2>
 
-        <article>
-          <h3>
-            Human-likeness in Design
-          </h3>
+        <p>
+          Doctoral student <br />
+          Future University Hakodate
+        </p>
 
-          <p>
-            I study how people perceive human-likeness in artificial objects,
-            focusing on anthropomorphism, situation, and Kansei evaluation
-          </p>
-        </article>
+        <p>
+          I study how people perceive human-likeness in artificial objects,
+          focusing on anthropomorphism, situation, and Kansei evaluation.
+        </p>
+
+        <h3>
+          Links
+        </h3>
+
+        <ul className="link-list">
+          {
+            links.map((link) =>
+              <li key={link.id}>
+                <a href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {link.name}
+                </a>
+              </li>
+            )
+          }
+        </ul>
+
+        <h3>
+          Research Interests
+        </h3>
+
+        <ul>
+          <li>Anthropomorphism</li>
+          <li>Human-likeness in Design</li>
+          <li>Kansei Design</li>
+          <li>Cognitive Science</li>
+        </ul>
       </section>
 
       <section>
@@ -123,16 +168,16 @@ function App() {
         </h2>
         {
           [...publications]
-          .sort((a,b) => Number(b.year) - Number(a.year))
-          .map((publication) =>
-            <PublicationCard
-              key={publication.id}
-              title={publication.title}
-              venue={publication.venue}
-              year={publication.year}
-              url={publication.url}
-            />
-          )
+            .sort((a, b) => Number(b.year) - Number(a.year))
+            .map((publication) =>
+              <PublicationCard
+                key={publication.id}
+                title={publication.title}
+                venue={publication.venue}
+                year={publication.year}
+                url={publication.url}
+              />
+            )
         }
 
       </section>
