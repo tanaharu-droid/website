@@ -86,3 +86,39 @@ article a:hover {
   list-style: none;
   /*箇条書きリストの点をなくす*/
 }
+
+.toggle-button {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: white;
+  background-color: #437cf5;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  /*ボタンの周囲グラフィック削除*/
+  cursor: pointer;
+  /*マウスポインタの形が変わる*/
+}
+
+.toggle-button:hover {
+  background-color: rgb(236, 165, 131);
+}
+
+.publication-list {
+  overflow: hidden;
+  /*枠外コンテンツを非表示*/
+  transition: opacity 1.0s ease, transform 1.0s ease, max-height 1.0s ease;
+}
+
+.publication-list.open {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 2000px;
+  /*Publicationsコンテンツ合計の概算*/
+}
+
+.publication-list.closed {
+  opacity: 0;
+  transform: translateY(-8px);
+  max-height: 0;
+}

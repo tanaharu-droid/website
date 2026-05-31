@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 import ProjectCard from './ProjectCard'
 import PublicationCard from './PublicationCard'
@@ -5,6 +6,8 @@ import PublicationCard from './PublicationCard'
 
 
 function App() {
+  const [showPublications, setShowPublications] = useState(true)
+
   const projects = [
     {
       id: "memocon",
@@ -107,7 +110,7 @@ function App() {
         </div>
 
         <img
-          src="/website/profile.PNG"
+          src="/website/profile.png"
           alt="Portrait of Haruki Tanaka"
           className="profile-image"
         />
@@ -165,7 +168,7 @@ function App() {
           Projects
         </h2>
         {
-          projects
+          [...projects]
             .sort((a, b) => Number(b.year) - Number(a.year))
             .map((project) =>
               <ProjectCard
@@ -184,27 +187,35 @@ function App() {
         <h2>
           Publications
         </h2>
-        {
-          [...publications]
-            .sort((a, b) => Number(b.year) - Number(a.year))
-            .map((publication) =>
-              <PublicationCard
-                key={publication.id}
-                title={publication.title}
-                venue={publication.venue}
-                year={publication.year}
-                url={publication.url}
-              />
-            )
-        }
 
+        <button
+          className="toggle-button"
+          onClick={() => setShowPublications(!showPublications)}>
+          {showPublications ? "Hide Publications" : "Show Publications"}
+        </button>
+
+        <div className={showPublications ? "publication-list open" : "publication-list closed"}>
+          {
+            [...publications]
+              .sort((a, b) => Number(b.year) - Number(a.year))
+              .map((publication) =>
+                <PublicationCard
+                  key={publication.id}
+                  title={publication.title}
+                  venue={publication.venue}
+                  year={publication.year}
+                  url={publication.url}
+                />
+              )
+          }
+        </div>
       </section>
 
-       <nav className="nav-bar">
+      <nav className="nav-bar">
         <a href="#">Top</a>
-        </nav>
+      </nav>
 
-    </main>
+    </main >
   )
 }
 
