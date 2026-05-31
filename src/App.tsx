@@ -88,7 +88,8 @@ function App() {
 
   return (
     <main>
-      <section>
+      <section className="hero">
+        <div>
         <h1>
           Haruki Tanaka
         </h1>
@@ -96,6 +97,14 @@ function App() {
         <p>
           Design × Anthropomorphism
         </p>
+        </div>
+
+        <img
+        src="/website/profile.PNG"
+        alt="Portrait of Haruki Tanaka"
+        className="profile-image"
+        />
+
       </section>
 
       <section>
@@ -104,7 +113,7 @@ function App() {
         </h2>
 
         <p>
-          Doctoral student <br />
+          Doctoral student (first year)  <br />
           Future University Hakodate
         </p>
 

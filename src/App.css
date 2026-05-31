@@ -1,3 +1,20 @@
+.hero {
+  display: flex;
+  align-items: center;
+  /*縦方向の位置合わせ*/
+  justify-content: space-between;
+  /*左右いっぱいに広げる*/
+  gap: 32px;
+}
+
+.profile-image {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  /*縦横比を維持したままトリミング*/
+  border-radius: 50%;
+}
+
 article {
   background-color: #1b2238;
   padding: 24px;
