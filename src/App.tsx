@@ -88,26 +88,33 @@ function App() {
 
   return (
     <main>
-      <section className="hero">
-        <div>
-        <h1>
-          Haruki Tanaka
-        </h1>
 
-        <p>
-          Design × Anthropomorphism
-        </p>
+      <nav className="nav-bar">
+        <a href="#profile">Profile</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+      </nav>
+
+      <section id="hero" className="hero">
+        <div>
+          <h1>
+            Haruki Tanaka
+          </h1>
+
+          <p>
+            Design × Anthropomorphism
+          </p>
         </div>
 
         <img
-        src="/website/profile.PNG"
-        alt="Portrait of Haruki Tanaka"
-        className="profile-image"
+          src="/website/profile.PNG"
+          alt="Portrait of Haruki Tanaka"
+          className="profile-image"
         />
 
       </section>
 
-      <section>
+      <section id="profile">
         <h2>
           Profile
         </h2>
@@ -153,25 +160,27 @@ function App() {
         </ul>
       </section>
 
-      <section>
+      <section id="projects">
         <h2>
           Projects
         </h2>
         {
-          projects.map((project) =>
-            <ProjectCard
-              key={project.id}
-              title={project.title}
-              year={project.year}
-              description={project.description}
-              url={project.url}
-            />
-          )
+          projects
+            .sort((a, b) => Number(b.year) - Number(a.year))
+            .map((project) =>
+              <ProjectCard
+                key={project.id}
+                title={project.title}
+                year={project.year}
+                description={project.description}
+                url={project.url}
+              />
+            )
         }
 
       </section>
 
-      <section>
+      <section id="publications">
         <h2>
           Publications
         </h2>
@@ -190,6 +199,11 @@ function App() {
         }
 
       </section>
+
+       <nav className="nav-bar">
+        <a href="#">Top</a>
+        </nav>
+
     </main>
   )
 }

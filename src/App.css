@@ -1,3 +1,19 @@
+.nav-bar {
+  display: flex;
+  gap: 16px;
+  padding-left: 0;
+  margin-bottom: 18px;
+}
+
+.nav-bar a {
+  color: white;
+}
+
+.nav-bar a:hover {
+  color: rgb(236, 165, 131);
+}
+
+
 .hero {
   display: flex;
   align-items: center;
