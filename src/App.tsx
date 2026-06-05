@@ -2,12 +2,14 @@ import { useState } from 'react'
 import './App.css'
 import ProjectCard from './ProjectCard'
 import PublicationCard from './PublicationCard'
+import ExhibitionCard from './ExhibitionCard'
 
 
 
 function App() {
   const [showPublications, setShowPublications] = useState(true)
   const [showProjects, setShowProjects] = useState(true)
+  const [showExhibitions, setShowExhibitions] = useState(true)
 
   const projects = [
     {
@@ -92,6 +94,20 @@ function App() {
     }
   ]
 
+  const exhibitions = [
+    {
+      id: "humanlikeness-exhibition-2025",
+      title: "デザインにおける人間らしさ展",
+      year: "2025",
+      date: "November 26–27, 2025",
+      venue: "Future University Hakodate 3F Museum",
+      description: "A solo exhibition presenting research and design works related to human-likeness in design, developed from undergraduate to master's studies.",
+      images: [
+        "/website/exhibitions/humanlikeness-2025-1.png"
+      ]
+    }
+  ]
+
   const links = [
     {
       id: "orcid",
@@ -113,6 +129,7 @@ function App() {
         <a href="#profile">Profile</a>
         <a href="#projects">Projects</a>
         <a href="#publications">Publications</a>
+        <a href="#exhibitions">Exhibitions</a>
       </nav>
 
       <section id="hero" className="hero">
@@ -231,6 +248,36 @@ function App() {
                   venue={publication.venue}
                   year={publication.year}
                   url={publication.url}
+                />
+              )
+          }
+        </div>
+      </section>
+
+      <section id="exhibitions">
+        <h2>
+          Exhibitions
+        </h2>
+
+        <button
+          className="toggle-button"
+          onClick={() => setShowExhibitions(!showExhibitions)}>
+          {showExhibitions ? "Hide Exhibitions" : "Show Exhibitions"}
+        </button>
+
+        <div className={showExhibitions ? "exhibition-list open" : "exhibition-list closed"}>
+          {
+            [...exhibitions]
+              .sort((a, b) => Number(b.year) - Number(a.year))
+              .map((exhibition) =>
+                <ExhibitionCard
+                  key={exhibition.id}
+                  title={exhibition.title}
+                  year={exhibition.year}
+                  date={exhibition.date}
+                  venue={exhibition.venue}
+                  description={exhibition.description}
+                  images={exhibition.images}
                 />
               )
           }

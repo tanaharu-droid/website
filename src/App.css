@@ -31,6 +31,14 @@
   border-radius: 50%;
 }
 
+.exhibition-image {
+  width: 60%;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
 article {
   background-color: #1b2238;
   padding: 24px;
@@ -104,39 +112,24 @@ article a:hover {
   background-color: rgb(236, 165, 131);
 }
 
-.publication-list {
+.project-list,
+.publication-list,
+.exhibition-list {
   overflow: hidden;
-  /*枠外コンテンツを非表示*/
-  transition: opacity 1.0s ease, transform 1.0s ease, max-height 1.0s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease;
 }
 
-.publication-list.open {
+.project-list.open,
+.publication-list.open,
+.exhibition-list.open {
   opacity: 1;
   transform: translateY(0);
-  max-height: 2000px;
-  /*Publicationsコンテンツ合計の概算*/
+  max-height: 2500px;
 }
 
-.publication-list.closed {
-  opacity: 0;
-  transform: translateY(-8px);
-  max-height: 0;
-}
-
-.project-list {
-  overflow: hidden;
-  /*枠外コンテンツを非表示*/
-  transition: opacity 1.0s ease, transform 1.0s ease, max-height 1.0s ease;
-}
-
-.project-list.open {
-  opacity: 1;
-  transform: translateY(0);
-  max-height: 2000px;
-  /*Publicationsコンテンツ合計の概算*/
-}
-
-.project-list.closed {
+.project-list.closed,
+.publication-list.closed,
+.exhibition-list.closed {
   opacity: 0;
   transform: translateY(-8px);
   max-height: 0;
