@@ -122,3 +122,22 @@ article a:hover {
   transform: translateY(-8px);
   max-height: 0;
 }
+
+.project-list {
+  overflow: hidden;
+  /*枠外コンテンツを非表示*/
+  transition: opacity 1.0s ease, transform 1.0s ease, max-height 1.0s ease;
+}
+
+.project-list.open {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 2000px;
+  /*Publicationsコンテンツ合計の概算*/
+}
+
+.project-list.closed {
+  opacity: 0;
+  transform: translateY(-8px);
+  max-height: 0;
+}

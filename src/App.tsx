@@ -7,6 +7,7 @@ import PublicationCard from './PublicationCard'
 
 function App() {
   const [showPublications, setShowPublications] = useState(true)
+  const [showProjects, setShowProjects] = useState(true)
 
   const projects = [
     {
@@ -22,6 +23,14 @@ function App() {
       title: "EVHP",
       year: "2024",
       description: "Solving the vacant house problem in the western district of Hakodate through anthropomorphism."
+    },
+
+    {
+      id: "anime",
+      title: "Anthropomorphic design | collage animation",
+      year: "2024",
+      description: "An attempt to present research in a pop style using collage animation.",
+      url: "https://www.youtube.com/watch?v=ej5M6IG2eCo"
     }
   ]
 
@@ -72,6 +81,14 @@ function App() {
       venue: "ICBAKE2025",
       year: "2025",
       url: "https://www.jstage.jst.go.jp/article/icbake/2025/0/2025_78/_article"
+    },
+
+    {
+      id: "7",
+      title: "Investigating the Relationship Between Situational Changes and Anthropomorphism in Product Design – Focusing on Lighting Fixture Design –",
+      venue: "第27回日本感性工学会大会",
+      year: "2025",
+      url: "https://www.jstage.jst.go.jp/article/jskeproceedings/3.1/0/3.1_419/_article/-char/ja"
     }
   ]
 
@@ -167,20 +184,29 @@ function App() {
         <h2>
           Projects
         </h2>
-        {
-          [...projects]
-            .sort((a, b) => Number(b.year) - Number(a.year))
-            .map((project) =>
-              <ProjectCard
-                key={project.id}
-                title={project.title}
-                year={project.year}
-                description={project.description}
-                url={project.url}
-              />
-            )
-        }
 
+        <button
+          className="toggle-button"
+          onClick={() => setShowProjects(!showProjects)}>
+          {showProjects ? "Hide Projects" : "Show Projects"}
+        </button>
+
+        <div className={showProjects ? "project-list open" : "project-list closed"}>
+
+          {
+            [...projects]
+              .sort((a, b) => Number(b.year) - Number(a.year))
+              .map((project) =>
+                <ProjectCard
+                  key={project.id}
+                  title={project.title}
+                  year={project.year}
+                  description={project.description}
+                  url={project.url}
+                />
+              )
+          }
+        </div>
       </section>
 
       <section id="publications">
