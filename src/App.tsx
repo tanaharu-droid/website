@@ -284,8 +284,8 @@ function App() {
         </div>
       </section>
 
-      <nav className="nav-bar">
-        <a href="#">Top</a>
+      <nav className="bottom-nav">
+        <a href="#hero">Top</a>
       </nav>
 
     </main >

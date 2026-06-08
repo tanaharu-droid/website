@@ -1,8 +1,14 @@
 .nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
   display: flex;
   gap: 16px;
   padding-left: 0;
   margin-bottom: 18px;
+
+  background-color: #0b1020;
 }
 
 .nav-bar a {
@@ -10,6 +16,23 @@
 }
 
 .nav-bar a:hover {
+  color: rgb(236, 165, 131);
+}
+
+.bottom-nav {
+  display: flex;
+  gap: 16px;
+  padding-left: 0;
+  margin-bottom: 18px;
+
+  background-color: #0b1020;
+}
+
+.bottom-nav a {
+  color: white;
+}
+
+.bottom-nav a:hover {
   color: rgb(236, 165, 131);
 }
 
@@ -37,6 +60,11 @@
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 16px;
+}
+
+section {
+  scroll-margin-top: 72px;
+  /*ページ内リンクで移動するとき，上に72px分の余白を残して止まる*/
 }
 
 article {
